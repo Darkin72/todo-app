@@ -1,0 +1,168 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TODO APP</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="container" role="main">
+      <aside>
+        <div class="top-bar" aria-label="Logo">
+          <div class="circles" aria-hidden="true">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+          </div>
+        </div>
+        <div class="add-project-input-container">
+          <input
+            type="text"
+            class="add-project-input"
+            placeholder="Add new project..."
+            aria-label="Add new project"
+          />
+          <button
+            type="button"
+            class="add-project-btn"
+            aria-label="Add new project"
+            onclick="addProject()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="projects-header">My Projects</div>
+        <nav class="projects-list" aria-label="My Projects">
+          <ul class="project-list">
+            <li>
+              <button
+                type="button"
+                class="project-button project-active"
+                onclick="changeProject('Personal')"
+              >
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    width="512"
+                    height="512"
+                    class="project-icon"
+                  >
+                    <path
+                      d="m23.882,8l.118-1h-6.469l.841-7h-1.053l-.841,7h-7.842l.841-7h-1.053l-.841,7H.941l-.118,1h6.639l-.841,7H.118L0,16h6.502l-.961,8h1.053l.961-8h7.842l-.961,8h1.053l.961-8h6.726l.118-1h-6.724l.841-7h6.472Zm-8.365,7h-7.842l.841-7h7.842l-.841,7Z"
+                    />
+                  </svg>
+                  Personal
+                </div>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <nav class="navpath" aria-label="Navigation Path">
+          <div class="navpath-trail">
+            <span>My Projects</span><span>/</span
+            ><span class="current-project">Personal</span>
+          </div>
+        </nav>
+        <div class="header-row">
+          <h1>Personal</h1>
+          <div class="filter-controls">
+            <button
+              type="button"
+              class="filter-btn active"
+              data-filter="all"
+              onclick="filterTaskAndUpdateButton('all', this)"
+            >
+              All
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="active"
+              onclick="filterTaskAndUpdateButton('active', this)"
+            >
+              Active
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="completed"
+              onclick="filterTaskAndUpdateButton('completed', this)"
+            >
+              Completed
+            </button>
+          </div>
+        </div>
+        <form class="add-task" aria-label="Add task form">
+          <input
+            type="text"
+            id="task-input"
+            class="description"
+            placeholder="  Input a task ..."
+            aria-label="Task description"
+          />
+          <div class="option-bar">
+            <div class="priority-options">
+              <button
+                type="button"
+                class="priority-btn high"
+                aria-label="High priority"
+                onclick="selectPriority('high')"
+              >
+                <span class="priority-dot"></span>
+                High
+              </button>
+              <button
+                type="button"
+                class="priority-btn medium"
+                aria-label="Medium priority"
+                onClick="selectPriority('medium')"
+              >
+                <span class="priority-dot"></span>
+                Medium
+              </button>
+              <button
+                type="button"
+                class="priority-btn low"
+                aria-label="Low priority"
+                onClick="selectPriority('low')"
+                selected=""
+              >
+                <span class="priority-dot"></span>
+                Low
+              </button>
+            </div>
+            <div class="footer">
+              <button
+                type="button"
+                class="project-select"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Select project"
+              ></button>
+              <div class="buttons">
+                <button type="button" class="add" onclick="addTask()">
+                  Add task
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

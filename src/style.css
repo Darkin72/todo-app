@@ -1,0 +1,949 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f9f7f4;
+  color: #1a1a1a;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  max-width: 100vw;
+}
+
+aside {
+  width: 280px;
+  background-color: #f9f7f4;
+  border-right: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+.circles {
+  display: flex;
+  gap: 6px;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.circle.red {
+  background-color: #f25f58;
+}
+
+.circle.yellow {
+  background-color: #f5bc4e;
+}
+
+.circle.green {
+  background-color: #4ac94a;
+}
+
+/* User and Add task */
+.user-addtask {
+  padding: 16px;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+}
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #8c8c8c;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.user-button .avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #d94a4a;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-button .name {
+  color: #1a1a1a;
+}
+.user-button svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.add-task-btn {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #d94a4a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+.add-task-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Navigation */
+nav.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  font-size: 14px;
+  color: #4a4a4a;
+  font-weight: 400;
+}
+nav.main-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  font-weight: 400;
+  padding: 0;
+  justify-content: flex-start;
+}
+nav.main-nav button:hover {
+  color: #1a1a1a;
+}
+nav.main-nav button .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+nav.main-nav button.inbox,
+nav.main-nav button.today {
+  justify-content: space-between;
+}
+nav.main-nav button.inbox span.count,
+nav.main-nav button.today span.count {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+nav.main-nav button.today span.count {
+  color: #d94a4a;
+}
+
+/* My Projects header */
+.projects-header {
+  padding: 8px 16px 12px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8c8c;
+  border-top: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-project-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.add-project-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.add-project-btn svg {
+  fill: #8c8c8c;
+  width: 16px;
+  height: 16px;
+}
+
+.add-project-btn:hover svg {
+  fill: #d94a4a;
+}
+
+/* Projects list */
+nav.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px 16px 16px;
+  font-size: 14px;
+  color: #4a4a4a;
+  font-weight: 400;
+}
+nav.projects-list button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0;
+  color: inherit;
+}
+nav.projects-list button .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+nav.projects-list button .left svg {
+  width: 14px;
+  height: 14px;
+  fill: #8c8c8c;
+  flex-shrink: 0;
+}
+nav.projects-list button .count {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+nav.projects-list button.project-active {
+  background-color: #f9d6ca;
+  color: #d94a4a;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+nav.projects-list button.project-active svg {
+  width: 14px;
+  height: 14px;
+  fill: #d94a4a;
+  flex-shrink: 0;
+}
+
+/* Browse templates */
+.browse-templates {
+  margin-top: auto;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a4a4a;
+  border-top: 1px solid #d9d9d9;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.browse-templates:hover {
+  color: #1a1a1a;
+}
+.browse-templates svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+main .navpath {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8c8c8c;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 4px;
+}
+main h1 {
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0 0 16px 0;
+}
+
+/* Task input form */
+form.add-task {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+form.add-task .task-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-weight: 400;
+}
+form.add-task .task-title .highlight {
+  background-color: #f9d6ca;
+  color: #d94a4a;
+  border-radius: 4px;
+  padding: 0 4px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.3;
+}
+form.add-task input.description {
+  width: 100%;
+  font-size: 25px;
+  color: #000;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  line-height: 1.3;
+}
+form.add-task .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+form.add-task .tags button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background: none;
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+form.add-task .tags button.monday {
+  color: #6a4f9a;
+  font-weight: 600;
+}
+form.add-task .tags button svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+form.add-task .tags button:last-child {
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.add-task .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a4a4a;
+  margin-top: 8px;
+}
+form.add-task .footer .project-select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0;
+  line-height: 1.3;
+}
+form.add-task .footer .buttons {
+  display: flex;
+  gap: 8px;
+}
+form.add-task .footer button.cancel {
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background: none;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4a4a4a;
+  cursor: pointer;
+  line-height: 1.3;
+}
+form.add-task .footer button.add {
+  background-color: #d94a4a;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  line-height: 1.3;
+}
+
+/* Sections */
+section {
+  margin-bottom: 24px;
+}
+section .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+section .header button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1.3;
+}
+section .header button svg {
+  width: 12px;
+  height: 12px;
+  fill: #8c8c8c;
+  flex-shrink: 0;
+}
+section .header .count {
+  font-size: 12px;
+  color: #8c8c8c;
+
+  line-height: 1.3;
+}
+section .header svg.options {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  fill: #8c8c8c;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Task list */
+ul.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ul.task-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+ul.task-list li input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Task List Styling */
+.task-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-content input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #d94a4a;
+}
+
+.task-content label {
+  font-size: 14px;
+}
+
+.task-priority {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.task-priority .priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #56c9a0;
+}
+
+.task-priority.high .priority-dot {
+  background-color: #d94a4a;
+}
+
+/* Completed task styling */
+.task-item.completed .task-content label {
+  text-decoration: line-through;
+  color: #8c8c8c;
+}
+
+/* Delete task button styling */
+.delete-task-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.delete-task-btn:hover {
+  background-color: rgba(217, 74, 74, 0.1);
+  opacity: 1;
+}
+
+.delete-task-btn svg {
+  fill: #d94a4a;
+}
+
+.task-priority.medium .priority-dot {
+  background-color: #f5bc4e;
+}
+
+.task-priority.low .priority-dot {
+  background-color: #56c9a0;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #8c8c8c;
+  margin-top: 32px;
+  font-style: italic;
+}
+
+/* Active project highlighting */
+.project-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+}
+
+.project-button div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-button.project-active {
+  background-color: #f9d6ca;
+  color: #d94a4a;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
+.project-button.project-active svg {
+  fill: #d94a4a;
+}
+
+.project-icon {
+  width: 12px;
+  height: 12px;
+  fill: #8c8c8c;
+}
+
+/* Priority buttons styling */
+.priority-options {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.priority-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease, transform 0.1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.priority-btn:active {
+  transform: translateY(1px);
+}
+
+.priority-btn .priority-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.high {
+  color: #d94a4a;
+}
+
+.high .priority-dot {
+  background-color: #d94a4a;
+}
+
+.high:hover {
+  background-color: rgba(217, 74, 74, 0.1);
+}
+
+.medium {
+  color: #f5a623;
+}
+
+.medium .priority-dot {
+  background-color: #f5a623;
+}
+
+.medium:hover {
+  background-color: rgba(245, 166, 35, 0.1);
+}
+
+.low {
+  color: #4a90e2;
+}
+
+.low .priority-dot {
+  background-color: #4a90e2;
+}
+
+.low:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.priority-btn.selected {
+  font-weight: 600;
+  border-width: 2px;
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+.high.selected {
+  border-color: #d94a4a;
+  background-color: rgba(217, 74, 74, 0.08);
+  color: #b73535;
+}
+
+.medium.selected {
+  border-color: #f5a623;
+  background-color: rgba(245, 166, 35, 0.08);
+  color: #d48913;
+}
+
+.low.selected {
+  border-color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.08);
+  color: #2172c9;
+}
+
+.priority-btn.selected .priority-dot {
+  transform: scale(1.2);
+}
+
+.option-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Add Project Input */
+.add-project-input-container {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d9d9d9;
+  gap: 8px;
+}
+
+.add-project-input {
+  flex: 1;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.add-project-input:focus {
+  border-color: #d94a4a;
+}
+
+.add-project-input::placeholder {
+  color: #8c8c8c;
+}
+
+.add-project-input-container .add-project-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.add-project-input-container .add-project-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.add-project-input-container .add-project-btn svg {
+  fill: #8c8c8c;
+  width: 16px;
+  height: 16px;
+}
+
+.add-project-input-container .add-project-btn:hover svg {
+  fill: #d94a4a;
+}
+ul.project-list {
+  list-style-type: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+ul.project-list li {
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  aside {
+    width: 220px;
+  }
+  main {
+    padding: 16px;
+  }
+}
+/* Completed task styling */
+.task-item.completed .task-content label {
+  text-decoration: line-through;
+  color: #8c8c8c;
+}
+
+/* Delete task button styling */
+.delete-task-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.delete-task-btn:hover {
+  background-color: rgba(217, 74, 74, 0.1);
+  opacity: 1;
+}
+
+.delete-task-btn svg {
+  fill: #d94a4a;
+}
+/* Navigation path and filter controls */
+.navpath {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navpath-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #8c8c8c;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn.active {
+  background-color: #f0ebe5;
+  color: #5c5c5c;
+}
+
+/* Project list item styling */
+.project-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Delete project button styling */
+.delete-project-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-right: 8px;
+}
+
+.project-list li:hover .delete-project-btn {
+  opacity: 0.6;
+}
+
+.delete-project-btn:hover {
+  opacity: 1 !important;
+  background-color: rgba(217, 74, 74, 0.1);
+}
+
+.delete-project-btn svg {
+  fill: #d94a4a;
+}
+
+/* Completed task styling */
+.task-item.completed .task-content label {
+  text-decoration: line-through;
+  color: #8c8c8c;
+}
+
+/* Delete task button styling */
+.delete-task-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.delete-task-btn:hover {
+  background-color: rgba(217, 74, 74, 0.1);
+  opacity: 1;
+}
+
+.delete-task-btn svg {
+  fill: #d94a4a;
+}
