@@ -4,7 +4,7 @@ A simple task management application that runs directly in the browser without r
 ## 🚀 Features
 ✅ Add, mark as complete, and delete tasks
 
-🔍 Filter tasks by status: All / Incomplete / Completed
+🔍 Filter tasks by status: All / Active / Completed
 
 🌓 Light and dark mode support, automatically following system settings
 
